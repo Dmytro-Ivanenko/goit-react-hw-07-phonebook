@@ -32,7 +32,7 @@ const App = () => {
 						<ContactList />
 					</>
 				) : (
-					<Notification message="There is no contacts"></Notification>
+					<Notification />
 				)}
 			</Section>
 		</>

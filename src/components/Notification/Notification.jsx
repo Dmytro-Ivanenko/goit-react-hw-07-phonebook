@@ -1,12 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getError } from '../../redux/selectors';
 
-const Notification = ({ message }) => {
+const Notification = () => {
+	const error = useSelector(getError);
+
+	let message = 'There is no contacts';
+
+	if (error) {
+		message = error;
+	}
+
 	return <p>{message}</p>;
-};
-
-Notification.propTypes = {
-	message: PropTypes.string.isRequired,
 };
 
 export default Notification;
