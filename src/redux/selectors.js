@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 export const getFilter = (state) => state.filter;
-export const getContacts = (state) => state.contacts;
+export const getContacts = (state) => state.contacts.items;
 
 export const filteredList = createSelector(
 	[getContacts, getFilter],
@@ -11,3 +11,6 @@ export const filteredList = createSelector(
 		});
 	}
 );
+
+export const getIsLoading = (state) => state.contacts.isLoading;
+export const getError = (state) => state.contacts.error;

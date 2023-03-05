@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../redux/selectors';
-import { addContacts } from '../../redux/contactsSlice';
+import { postContacts } from '../../redux/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import Button from '../Button/Button';
@@ -37,7 +37,12 @@ const ContactForm = () => {
 		}
 
 		// add new contact into store
-		dispatch(addContacts(inpName.toLowerCase(), inpNumber));
+		dispatch(
+			postContacts({
+				name: inpName.toLowerCase(),
+				phone: inpNumber,
+			})
+		);
 		evn.target.reset();
 	};
 
